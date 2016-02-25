@@ -1,0 +1,114 @@
+---
+title: "R Markdown demo"
+author: "Jeff"
+date: "February 19, 2016"
+output: html_document
+---
+
+To render this document as HTML, make sure you have the `knitr` and `RMarkdown` packages installed, then open this file in RStudio and hit the `knit` button over the "Source" window. 
+
+This is some normal text!!!
+
+# header
+
+## smaller header
+
+### even smaller header
+
+<!--kjfldkjlsdkjfsld  -->
+
+This is normal text, *this is italic text*, **this is bold text**. ***what does this do***
+
+To include code inline with your text `kdjflaskdjfl`. 
+
+This is how code looks on multiple lines: 
+
+```
+Code line 1
+Code line 2
+etc....
+```
+
+We're done with our code!
+
+## including code that actually runs
+
+Here's how you do it:
+
+```{r}
+5 + 3
+print('hello')
+a <- 4
+```
+
+Add some plots:
+```{r this is our name}
+library(ggplot2)
+ggplot() + geom_point(aes(x = 1:10, y = 1:10))
+```
+
+## links and images
+
+links:
+[this is the link name](https://www.google.ca/)
+
+images:
+
+![Image name](https://upload.wikimedia.org/wikipedia/commons/0/03/Mountain_Bluebird.jpg)
+
+## lists
+
+This how you a list:
+
++ item 1
++ item 2
++ item 3
+
+Numbered list:
+
+1. item 1
+2. item 2
+3. item 4
+    + sublist? maybe?
+    + another element
+
+## having code run when you want it to
+
+This code never gets run
+```{r eval=FALSE}
+print('this should not run')
+```
+
+Our template code doesn't get rendered, but the output does:
+```{r echo=FALSE}
+print('only our output should appear')
+```
+
+code chunks know about code you've run previously
+```{r}
+dependency <- 'present'
+```
+
+this code chunk depends on the last one
+```{r}
+print(dependency)
+```
+
+Have code silently run, but make no output:
+```{r include=FALSE}
+silent <- 5678
+```
+
+but we can print it here
+```{r}
+print(silent)
+```
+
+We can include R code in inline text like this: `r 5 + 4`. We can also refer to variables this way: `r dependency` ldsakfj;sladkjf;sldakjf;lsaksdjfldsakjflsadkjflasdkjflsakdjflaskdjflasdkjfalsdkjfaslkdjflasdkjflasdkjflaskdjf. That was just filler text.
+
+
+Demonstrating the && and || (short-circuit AND and OR operators)
+```{r}
+TRUE && FALSE
+TRUE || FALSE
+```
